@@ -6,12 +6,12 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "{{ cookiecutter.project_slug }}");
     ros::NodeHandle nh;
 
-    MyClassROS myobject(nh);
-    myobject.initialize();
+    MyClassROS myobjectros(nh);
+    myobjectros.initialize();
 
     ros::Rate loop_rate(10);
     while (ros::ok()) {
-        myobject.update();
+        myobjectros.update();
         ros::spinOnce();
         loop_rate.sleep();
     }
