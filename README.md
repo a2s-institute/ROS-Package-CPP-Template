@@ -5,6 +5,6 @@
 ## Getting started
 ```bash
 pip3 install cruft
-cruft create https://git.inf.h-brs.de/garrulus/templates/ros-package-cpp-template
+cruft create https://github.com/a2s-institute/ROS-Package-CPP-Template
 ```
 
