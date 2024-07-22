@@ -28,8 +28,22 @@ target_link_libraries(${PROJECT_NAME}_node
   ${PROJECT_NAME}
 )
 
+# Testing configuration
 if(CATKIN_ENABLE_TESTING)
+  # Find rostest and gtest packages
   find_package(rostest REQUIRED)
-  add_rostest_gtest(${PROJECT_NAME}_test test/test_${PROJECT_NAME}.cpp)
-  target_link_libraries(${PROJECT_NAME}_test ${catkin_LIBRARIES} ${PROJECT_NAME})
+  find_package(GTest REQUIRED)
+  
+  # Add rostest_gtest
+  add_rostest_gtest(${PROJECT_NAME}_test
+    test/test_${PROJECT_NAME}.launch  # Use a launch file for rostest
+    test/test_${PROJECT_NAME}.cpp     # Test file with Google Test
+  )
+  
+  # Link the test executable with the required libraries
+  target_link_libraries(${PROJECT_NAME}_test
+    ${catkin_LIBRARIES}
+    ${PROJECT_NAME}
+    ${GTEST_LIBRARIES}  # Link Google Test libraries
+  )
 endif()
