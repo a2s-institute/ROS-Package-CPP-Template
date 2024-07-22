@@ -4,8 +4,6 @@ const std::string HELLO_WORLD_STRING = "hello world";  // Global constant
 
 MyClass::MyClass() {
     // Constructor implementation
-    public:
-        string
 }
 
 MyClass::~MyClass() {
