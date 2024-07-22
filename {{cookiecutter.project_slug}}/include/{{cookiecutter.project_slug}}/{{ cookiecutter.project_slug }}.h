@@ -8,6 +8,7 @@ public:
 
     void initialize();
     void update();
+    static const std::string& getHelloWorldString();  // Declaration for the getter function
 };
 
 #endif // {{ cookiecutter.project_slug|upper }}_{{ cookiecutter.project_slug|upper }}_H

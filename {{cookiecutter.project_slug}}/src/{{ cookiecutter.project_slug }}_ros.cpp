@@ -1,13 +1,17 @@
 #include "{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_ros.h"
 #
-MyObjectROS::MyClassROS(ros::NodeHandle& nh) : nh_(nh) {
+MyClassROS::MyClassROS(ros::NodeHandle& nh) : nh_(nh) {
     // ROS-specific initialization
+    pub_ = nh_.advertise<std_msgs::String>("string_topic", 10);
 }
 
-void MyObjectROS::initialize() {
+void MyClassROS::initialize() {
     // ROS-specific initialization code
 }
 
-void MyObjectROS::update() {
+void MyClassROS::update() {
     // ROS-specific update code
+    std_msgs::String msg;
+    msg.data = MyClass::getHelloWorldString();  // Use the string from MyClass
+    pub_.publish(msg);
 }

@@ -3,17 +3,19 @@
 
 #include "ros/ros.h"
 #include "{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}.h"
+#include <std_msgs/String.h>
 
-class MyObjectROS {
+class MyClassROS {
 public:
-    MyObjectROS(ros::NodeHandle& nh);
+    MyClassROS(ros::NodeHandle& nh);
 
     void initialize();
     void update();
 
 private:
     ros::NodeHandle& nh_;
-    MyObject myobject_;
+    ros::Publisher pub_;
+    MyClass myobject_;
 };
 
 #endif // {{ cookiecutter.project_slug|upper }}_{{ cookiecutter.project_slug|upper }}_ROS_H
